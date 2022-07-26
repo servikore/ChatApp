@@ -19,9 +19,11 @@ connection.start().then(function () {
 
 document.getElementById("sendButton").addEventListener("click", function (event) {
     var user = document.getElementById("user_nickname").value;
-    var message = document.getElementById("messageInput").value;
+    var messageInput = document.getElementById("messageInput");
+    var message = messageInput.value;
 
     connection.invoke("SendMessage", user, message).catch(function (err) {
+        messageInput.value = '';
         return console.error(err.toString());
     });
 
@@ -29,7 +31,7 @@ document.getElementById("sendButton").addEventListener("click", function (event)
     var divNode = document.createElement('div');
     divNode.innerHTML = html;
     document.getElementById("chat-content").appendChild(divNode);
-
+    messageInput.value = '';
     event.preventDefault();
 });
 

@@ -57,6 +57,7 @@ namespace Application.DomainServices
             {                
                 var msg = new Domain.Entities.Message { UserId = userId, Content = chatMessage };
                 await messageRepository.InsertAsync(msg);
+                await messageRepository.SaveAsync();
             }                
 
             return result;
