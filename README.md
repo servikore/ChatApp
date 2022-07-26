@@ -12,3 +12,5 @@ Set RabbiMQ section in appsettings.json(if needed) for BotService and WebApp. Th
     "Port": 5672,
     "VirtualHost":  "/"
   }
+  
+  For testing run BotService and WebApp projects.
